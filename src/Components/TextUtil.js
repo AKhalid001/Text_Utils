@@ -26,9 +26,7 @@ export default function TextUtil(props) {
     }
 
     const handleCopy = () => {
-        var text = document.getElementById("myTextarea");
-        text.select();
-        navigator.clipboard.writeText(text.value);
+        navigator.clipboard.writeText(text);
         document.getSelection().removeAllRanges()
         props.showAlert("Copied", "success")
 
@@ -61,7 +59,7 @@ export default function TextUtil(props) {
                     <div className="row">
                         <div className="col">
                             <h3>Words & Charachters</h3>
-                            <p>This text have {text.split(" ").filter((element) => { return element.length !== 0 }).length} words and {text.length} charachters</p>
+                            <p>This text have {text.split(/\s+/).filter((element) => { return element.length !== 0 }).length} words and {text.length} charachters</p>
                         </div>
                         <div className="col">
                             <h3>Reading Time</h3>

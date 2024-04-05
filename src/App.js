@@ -41,9 +41,10 @@ function App() {
       <div>
         <Header mode={mode} EnableMode={EnableMode} />
         <Alert alert={alert} />
+        <img src="https://pbs.twimg.com/profile_images/470632818653921280/l5V_RKUu_400x400.png" alt="" width={"100%"} height={"600vh"}/>
         <Routes>
-            <Route path="/" element={<TextUtil mode = {mode} showAlert = {showAlert}/>} />
-            <Route path="/About" element={<About mode = {mode}/>} />
+            <Route exact path="/TextUtil" element={<TextUtil mode = {mode} showAlert = {showAlert}/>} />
+            <Route exact path="/About" element={<About mode = {mode}/>} />
           </Routes>
         <Footer mode={mode} EnableMode={EnableMode} />
       </div>
