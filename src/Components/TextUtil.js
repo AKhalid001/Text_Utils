@@ -2,7 +2,7 @@ import React from 'react'
 import { useState } from 'react'
 
 
-export default function Home(props) {
+export default function TextUtil(props) {
 
     const [text, setText] = useState("")
 
@@ -29,6 +29,7 @@ export default function Home(props) {
         var text = document.getElementById("myTextarea");
         text.select();
         navigator.clipboard.writeText(text.value);
+        document.getSelection().removeAllRanges()
         props.showAlert("Copied", "success")
 
     }
@@ -50,11 +51,11 @@ export default function Home(props) {
                         <h2>Enter Text</h2>
                         <textarea className="form-control" value={text} onChange={handleOnChange} id="myTextarea" rows="10" style={{ backgroundColor: props.mode === 'light' ? "white" : "#313233", color: props.mode === 'light' ? "Black" : "White" }}></textarea>
                     </div>
-                    <button type="button" className="btn btn-primary mx-1 my-1" onClick={handleUpClick}>UpperCase</button>
-                    <button type="button" className="btn btn-primary mx-1 my-1" onClick={handleLowClick}>LowerCase</button>
-                    <button type="button" className="btn btn-primary mx-1 my-1" onClick={handleClear}>Clear</button>
-                    <button type="button" className="btn btn-primary mx-1 my-1" onClick={handleCopy}>Copy</button>
-                    <button type="button" className="btn btn-primary mx-1 my-1" onClick={handleExtraSpaces}>ExtraSpaces</button>
+                    <button disabled = {text.length === 0} type="button" className="btn btn-primary mx-1 my-1" onClick={handleUpClick}>UpperCase</button>
+                    <button disabled = {text.length === 0} type="button" className="btn btn-primary mx-1 my-1" onClick={handleLowClick}>LowerCase</button>
+                    <button disabled = {text.length === 0} type="button" className="btn btn-primary mx-1 my-1" onClick={handleClear}>Clear</button>
+                    <button disabled = {text.length === 0} type="button" className="btn btn-primary mx-1 my-1" onClick={handleCopy}>Copy</button>
+                    <button disabled = {text.length === 0} type="button" className="btn btn-primary mx-1 my-1" onClick={handleExtraSpaces}>ExtraSpaces</button>
                 </div>
                 <div className="container text-center">
                     <div className="row">
@@ -64,11 +65,11 @@ export default function Home(props) {
                         </div>
                         <div className="col">
                             <h3>Reading Time</h3>
-                            <p>This text takes {text.split(" ").length * 0.25} seconds to read {text.split(" ").length} words</p>
+                            <p>This text takes {text.split(" ").filter((element) => { return element.length !== 0 }).length * 0.25} seconds to read {text.split(" ").filter((element) => { return element.length !== 0 }).length} words</p>
                         </div>
                         <div className="col">
                             <h3>Preview</h3>
-                            <p>{text.length > 0 ? text : "Enter text to preview here"}</p>
+                            <p>{text.length > 0 ? text : "Nothing to preview"}</p>
                         </div>
                     </div>
                 </div>
