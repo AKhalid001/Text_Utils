@@ -3,9 +3,10 @@ import './App.css';
 import Header from './Components/Header';
 import Alert from './Components/Alert';
 import Home from './Components/Home';
-// import About from './Components/About';
+import About from './Components/About';
+import Img from './Components/Img';
 import Footer from './Components/Footer';
-// import { Route, Routes, BrowserRouter as Router } from 'react-router-dom';
+import { Route, Routes, BrowserRouter as Router } from 'react-router-dom';
 
 function App() {
 
@@ -38,19 +39,18 @@ function App() {
 
   return (
     <>
-      {/* <Router> */}
+      <Router>
       <div>
         <Header mode={mode} EnableMode={EnableMode} />
         <Alert alert={alert} />
-        <img src="https://pbs.twimg.com/profile_images/470632818653921280/l5V_RKUu_400x400.png" alt="" width={"100%"} height={"500vh"} />
-        <Home mode={mode} showAlert={showAlert} />
-        {/* <Routes>
+        <Routes>
             <Route path="/Home" element={<Home mode = {mode} showAlert = {showAlert}/>} />
             <Route path="/About" element={<About mode = {mode}/>} />
-          </Routes> */}
+            <Route path="/" element={<Img/>} />
+          </Routes>
         <Footer mode={mode} EnableMode={EnableMode} />
       </div>
-      {/* </Router> */}
+      </Router>
     </>
   );
 }
