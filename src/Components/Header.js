@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
 
 export default function Header(props) {
@@ -16,10 +16,12 @@ export default function Header(props) {
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                             <li className="nav-item">
-                                <Link className="nav-link" to={"/Home"}>Home</Link>
+                                {/* <Link className="nav-link" to={"/Home"}>Home</Link> */}
+                                <a className="nav-link" href={"/Home"}>Home</a>
                             </li>
                             <li className="nav-item">
-                                <Link className="nav-link" to={"/About"}>About</Link>
+                                {/* <Link className="nav-link" to={"/About"}>About</Link> */}
+                                <a className="nav-link" href={"/About"}>About</a>
                             </li>
                         </ul>
                         <ul className="navbar-nav me-auto mb-2 mb-lg-0">
