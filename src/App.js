@@ -1,12 +1,10 @@
+import { Route, Routes, BrowserRouter as Router } from 'react-router-dom';
 import { useState } from 'react';
-import './App.css';
 import Header from './Components/Header';
 import Alert from './Components/Alert';
-import Home from './Components/Home';
+import TextUtil from './Components/TextUtil';
 import About from './Components/About';
-import Img from './Components/Img';
 import Footer from './Components/Footer';
-import { Route, Routes, BrowserRouter as Router } from 'react-router-dom';
 
 function App() {
 
@@ -44,9 +42,8 @@ function App() {
         <Header mode={mode} EnableMode={EnableMode} />
         <Alert alert={alert} />
         <Routes>
-            <Route path="/Home" element={<Home mode = {mode} showAlert = {showAlert}/>} />
+            <Route path="/" element={<TextUtil mode = {mode} showAlert = {showAlert}/>} />
             <Route path="/About" element={<About mode = {mode}/>} />
-            <Route path="/" element={<Img/>} />
           </Routes>
         <Footer mode={mode} EnableMode={EnableMode} />
       </div>
